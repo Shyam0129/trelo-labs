@@ -24,14 +24,17 @@ const HomePage: React.FC = () => (
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-900 text-white font-sans">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
-    </Router>
+    <>
+      <Router>
+        <div className="min-h-screen bg-gray-900 text-white font-sans">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </Router>
+      <Analytics />
+    </>
   );
 };
 
