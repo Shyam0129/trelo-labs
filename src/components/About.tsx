@@ -1,85 +1,85 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About: React.FC = () => {
   return (
     <section className="bg-gray-900 text-gray-100 py-16 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        {/* Left - Why choose us */}
-        <div className="bg-gray-800 rounded-2xl p-8 shadow-lg">
-          <h2 className="text-2xl font-bold mb-6">Why partners choose us</h2>
+<nav className="max-w-6xl mx-auto py-4">
+  <Link to="/" className="text-emerald-500 hover:text-emerald-400">← Back to Home</Link>
+</nav>
+<div className="max-w-6xl mx-auto space-y-16">
+        {/* Main Content */}
+        <div className="prose prose-lg prose-invert max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold mb-8 text-center">About Trelo Labs</h1>
+          <p className="text-xl mb-8">
+            At Trelo Labs, we're not just another digital agency — we're your product acceleration partner.
+            Our team blends creativity, code, and strategy to turn bold ideas into market-ready digital experiences — faster than traditional agencies.
+          </p>
+          <p className="mb-8">
+            We've helped startups and growing businesses ship stunning, scalable products in weeks, not months, with a focus on measurable results. 
+            Whether it's a polished landing page, a high-performance web app, or a full-scale AI-powered product, our mission is simple:
+            build things that matter, and make them perform beautifully.
+          </p>
+          
+          <h2 className="text-2xl font-bold mb-6">We believe in:</h2>
           <ul className="space-y-4 text-gray-300">
-            <li className="flex items-start gap-3">⏱ Ship in weeks, not months</li>
-            <li className="flex items-start gap-3">🤝 Flexible engagement: fixed-scope or monthly</li>
-            <li className="flex items-start gap-3">🎨 Design + engineering under one roof</li>
-            <li className="flex items-start gap-3">⚡ Modern stack: Next.js, React Native, Supabase, OpenAI</li>
-            <li className="flex items-start gap-3">📊 Continuous iteration & analytics baked in</li>
+            <li className="flex items-start gap-3">
+              <span className="text-emerald-500">⚡</span>
+              <span><strong>Speed with quality:</strong> Launch faster without cutting corners.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-emerald-500">🎯</span>
+              <span><strong>Purpose-driven design:</strong> Every pixel and line of code should serve a goal.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-emerald-500">🤝</span>
+              <span><strong>Transparent collaboration:</strong> You'll always know what we're building and why.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-emerald-500">📊</span>
+              <span><strong>Growth mindset:</strong> We treat your success metrics as our own.</span>
+            </li>
           </ul>
-          <div className="mt-8 flex gap-4">
-            <button className="px-5 py-2 rounded-xl bg-emerald-500 text-black font-semibold hover:bg-emerald-400 transition">
-              Start Your Project
-            </button>
-            <button className="px-5 py-2 rounded-xl bg-gray-700 text-gray-100 font-semibold hover:bg-gray-600 transition">
-              See Our Work
-            </button>
-          </div>
+          
+          <p className="mt-8 text-lg">
+            If you're ready to turn your idea into something people love to use —
+            <a 
+              href="https://calendly.com/shyambalanagu724/30min" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-emerald-500 hover:text-emerald-400 ml-1"
+            >
+              book your free 30-minute consultation today
+            </a> and see how fast we can make it real.
+          </p>
         </div>
 
-        {/* Right - Consultation Form */}
-        <div className="bg-gray-800 rounded-2xl p-8 shadow-lg">
-          <h2 className="text-2xl font-bold mb-6">Get a free 30-min consultation</h2>
-          <form
-            action="https://formspree.io/f/xwpronwp"
-            method="POST"
-            className="space-y-4"
-          >
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your name"
-                required
-                className="w-full rounded-lg bg-gray-900 p-3 text-gray-100 focus:ring-2 focus:ring-emerald-500"
+        {/* Team Section */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Team Member 1 */}
+            <div className="bg-gray-800 rounded-2xl p-6 flex flex-col items-center">
+              <img 
+                src="/images/teja.jpg" 
+                alt="Teja J" 
+                className="w-48 h-48 rounded-full object-cover mb-4"
               />
-              <input
-                type="text"
-                name="company"
-                placeholder="Company"
-                className="w-full rounded-lg bg-gray-900 p-3 text-gray-100 focus:ring-2 focus:ring-emerald-500"
+              <h3 className="text-xl font-bold">Teja J</h3>
+              <p className="text-emerald-500">Full stack | ML</p>
+            </div>
+
+            {/* Team Member 2 */}
+            <div className="bg-gray-800 rounded-2xl p-6 flex flex-col items-center">
+              <img 
+                src="/images/shyam.jpg" 
+                alt="Shyam B" 
+                className="w-48 h-48 rounded-full object-cover mb-4"
               />
+              <h3 className="text-xl font-bold">Shyam B</h3>
+              <p className="text-emerald-500">Full stack | App | AI</p>
             </div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Work email"
-              required
-              className="w-full rounded-lg bg-gray-900 p-3 text-gray-100 focus:ring-2 focus:ring-emerald-500"
-            />
-            <textarea
-              name="message"
-              placeholder="Project goals or challenges"
-              rows={4}
-              required
-              className="w-full rounded-lg bg-gray-900 p-3 text-gray-100 focus:ring-2 focus:ring-emerald-500"
-            />
-            <div className="flex gap-4">
-              <button
-                type="submit"
-                className="px-5 py-2 rounded-xl bg-emerald-500 text-black font-semibold hover:bg-emerald-400 transition"
-              >
-                Request Consultation
-              </button>
-              <a
-                href="#contact"
-                className="px-5 py-2 rounded-xl bg-gray-700 text-gray-100 font-semibold hover:bg-gray-600 transition inline-block text-center"
-              >
-                Book a time
-              </a>
-            </div>
-            <p className="text-sm text-gray-400">
-              We'll reply within 24 hours. No obligation.
-            </p>
-          </form>
+          </div>
         </div>
       </div>
     </section>

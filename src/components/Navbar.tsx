@@ -36,12 +36,19 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const navItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'about', label: 'About' },
-    { id: 'testimonials', label: 'Testimonials' }
+  interface NavItem {
+  id: string;
+  label: string;
+  internal: boolean;
+  href?: string;
+}
+
+const navItems: NavItem[] = [
+    { id: 'hero', label: 'Home', internal: true },
+    { id: 'services', label: 'Services', internal: true },
+    { id: 'projects', label: 'Projects', internal: true },
+    { id: 'about', label: 'About', internal: false, href: '/about' },
+    { id: 'testimonials', label: 'Testimonials', internal: true }
   ];
 
   return (
@@ -72,20 +79,32 @@ const Navbar: React.FC = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map(item => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`relative px-2 py-1 transition-colors duration-300 ${
-                activeSection === item.id 
-                ? 'text-green-500' 
-                : 'text-white hover:text-green-400'
-              }`}
-            >
-              {item.label}
-              {activeSection === item.id && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 transform origin-left transition-transform duration-300" />
+            <React.Fragment key={item.id}>
+              {item.internal ? (
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative px-2 py-1 transition-colors duration-300 ${
+                    activeSection === item.id 
+                    ? 'text-green-500' 
+                    : 'text-white hover:text-green-400'
+                  }`}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 transform origin-left transition-transform duration-300" />
+                  )}
+                </button>
+              ) : (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-green-400 transition-colors duration-300"
+                >
+                  {item.label}
+                </a>
               )}
-            </button>
+            </React.Fragment>
           ))}
           <a 
             href="https://calendly.com/shyambalanagu724/30min"

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Footer: React.FC = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   return (
     <footer className="bg-gray-950 text-gray-300 py-12 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -22,9 +23,9 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="font-semibold mb-3">Company</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-white">About</a></li>
-            <li><a href="#" className="hover:text-white">Case Studies</a></li>
-            <li><a href="#" className="hover:text-white">Testimonials</a></li>
+            <li><a href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-white">About</a></li>
+            <li><a href="https://github.com/Trelolabs/" target="_blank" rel="noopener noreferrer" className="hover:text-white">See our work</a></li>
+            <li><a href="#testimonials" className="hover:text-white">Testimonials</a></li>
           </ul>
         </div>
 
@@ -41,24 +42,37 @@ const Footer: React.FC = () => {
         {/* Quick Message */}
         <div>
           <h4 className="font-semibold mb-3">Quick message</h4>
-          <form className="space-y-3">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="w-full rounded-lg bg-gray-900 p-3 text-gray-100 focus:ring-2 focus:ring-emerald-500"
-            />
-            <textarea
-              placeholder="How can we help?"
-              rows={3}
-              className="w-full rounded-lg bg-gray-900 p-3 text-gray-100 focus:ring-2 focus:ring-emerald-500"
-            />
-            <button
-              type="submit"
-              className="w-full px-5 py-2 rounded-xl bg-emerald-500 text-black font-semibold hover:bg-emerald-400 transition"
+          {isSubmitted ? (
+            <p className="text-emerald-500">Thanks for your message! We'll get back to you soon.</p>
+          ) : (
+            <form 
+              action="https://formspree.io/f/mwkdklod"
+              method="POST"
+              className="space-y-3"
+              onSubmit={() => setIsSubmitted(true)}
             >
-              Send
-            </button>
-          </form>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+                className="w-full rounded-lg bg-gray-900 p-3 text-gray-100 focus:ring-2 focus:ring-emerald-500"
+              />
+              <textarea
+                name="message"
+                placeholder="How can we help?"
+                rows={3}
+                required
+                className="w-full rounded-lg bg-gray-900 p-3 text-gray-100 focus:ring-2 focus:ring-emerald-500"
+              />
+              <button
+                type="submit"
+                className="w-full px-5 py-2 rounded-xl bg-emerald-500 text-black font-semibold hover:bg-emerald-400 transition"
+              >
+                Send
+              </button>
+            </form>
+          )}
           <p className="text-xs text-gray-500 mt-2">
             By sending, you agree to our <a href="#" className="underline">Privacy Policy</a>.
           </p>
