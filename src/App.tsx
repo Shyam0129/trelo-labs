@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import { Analytics } from "@vercel/analytics/next"
 import Contact from './components/Contact';
 import FeaturedProjects from './components/FeaturedProjects';
 import Testimonials from './components/Testimonials';
